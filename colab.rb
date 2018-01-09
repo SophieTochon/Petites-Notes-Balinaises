@@ -1,1 +1,0 @@
-puts "grosse colab"
