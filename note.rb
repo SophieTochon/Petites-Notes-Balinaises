@@ -1,1 +1,0 @@
-puts "Note de Seb"
