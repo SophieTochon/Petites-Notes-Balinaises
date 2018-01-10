@@ -1,3 +1,4 @@
 Petit pull OKLM : git pull --rebase origin master
 
 Changer le repository origin : git remote remove origin
+Ajouter : git remote add origin + url
