@@ -1,38 +1,48 @@
-**🚀 Devise 🚀**
+# 🚀 Devise 🚀
 
-- Set up :
+__
 
-Juste après la création de l’app et du bundle install :
-**$ rails g devise:install**
+### Set up
 
-- Routes, models, migrations :
+Après la création de l’app et bundle install :
 
-Pour générer automatiquement model et migration :
-**$ rails g devise User**
+`$ rails g devise:install`
 
-😃 Avec cette méthode, pas besoin de controller User
-😃 Aussi, les routes ont intégré devise_for :users
+### Routes, models, migrations
 
-**$ rails db:migrate** pour créer / modifier le schéma 
+Générer automatiquement model et migration :
 
-✔️ Pour checker les routes créées ➡️ **$ rails routes**
+`$ rails g devise User`
 
-- Views :
+😃 Avec cette méthode, pas besoin de g controller Users
+😃 Aussi, les routes ont intégré **devise_for :users**
 
-Générer les views ➡️ **$ rails g devise:views**
+Créer / modifier le schéma :
 
-➕ Pour ajouter une ou plusieurs données à l’inscription : exemple ici avec une adresse : 
+`$ rails db:migrate` 
 
-**$ rails g migration AddAddressToUsers address:string**
-Puis **rails db:migrate**
+✔️ Checker les routes créées 
 
-Dans l’ ApplicationController :
+`$ rails routes`
 
-  before_action :sanitize_devise_params, if: :devise_controller?
+### Views
+
+Générer les views : 
+
+`$ rails g devise:views`
+
+➕ Ajouter des données à l’inscription, un exemple avec l'adresse de l'utilisateur : 
+
+`$ rails g migration AddAddressToUsers address:string
+rails db:migrate`
+
+Dans l’ ApplicationController `app/controllers/application_controller.rb`
+
+  `before_action :sanitize_devise_params, if: :devise_controller?
 
   def sanitize_devise_params
   	devise_parameter_sanitizer.permit(:sign_up, keys: [:address])
-  end
+  end`
 
 On modifie le formulaire dans la view registrations > new
 
